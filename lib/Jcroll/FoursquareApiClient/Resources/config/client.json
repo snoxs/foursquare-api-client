@@ -23,6 +23,14 @@
             },
             "uri": "users/leaderboard"
         },
+         "users/self": {
+            "description": "Returns the self user.",
+            "httpMethod": "GET",
+            "parameters": {
+                
+            },
+            "uri": "users/self"
+        },
         "users/requests": {
             "description": "Shows a user the list of users with whom they have a pending friend request (i.e., someone tried to add the acting user as a friend, but the acting user has not accepted).",
             "httpMethod": "GET",
@@ -141,6 +149,18 @@
             },
             "uri": "users/{user_id}/photos"
         },
+        "users/self/update": {
+            "extends": "users",
+             "httpMethod": "POST",
+            "description": "Update photo to self user.",
+            "parameters": {
+                "photo": {
+                    "description": "Photo to update.",
+                    "location": "query"
+                }
+            },
+            "uri": "users/self/update"
+        },
         "users/tips": {
             "extends": "users",
             "deprecated": true,
@@ -164,6 +184,29 @@
                 }
             },
             "uri": "users/{user_id}/tips"
+        },
+        "users/self/tips": {
+            "extends": "users",
+            "description": "Returns tips from a user self.",
+            "parameters": {
+                "sort": {
+                    "description": "One of recent, nearby, or popular. Nearby requires geolat and geolong to be provided.",
+                    "location": "query"
+                },
+                "ll": {
+                    "description": "Latitude and longitude of the user's location.",
+                    "location": "query"
+                },
+                "limit": {
+                    "description": "Number of results to return, up to 500.",
+                    "location": "query"
+                },
+                "offset": {
+                    "description": "Used to page through results.",
+                    "location": "query"
+                }
+            },
+            "uri": "users/self/tips"
         },
         "users/todos": {
             "extends": "users",
